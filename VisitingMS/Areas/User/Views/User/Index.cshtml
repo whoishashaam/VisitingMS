@@ -1,0 +1,85 @@
+﻿@model IEnumerable<VisitingMS.Models.UserModel>
+
+<partial name="_Notification" />
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>User List</h1>
+
+<p>
+    <a asp-action="Upsert">Create New</a>
+</p>
+
+<table id="tblData" class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                CNIC
+            </th>
+            <th>
+                Phone No
+            </th>
+            <th>
+                FullName
+            </th>
+            <th>
+                Entry Time
+            </th>
+            <th>
+                Visitor Belongings
+            </th>
+            <th>
+                Visiting Purpose
+            </th>
+            <th>
+               Visiting Department
+            </th>
+
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+   @* <tbody>
+       @* @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CNIC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VisitorBelongings)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VisitingPurpose)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                </td>
+            
+                <td>
+                    <a asp-action="Upsert" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>*@
+
+
+
+    </table>
+                @section Scripts{
+     <script src="~/js/User.js"></script>
+                }

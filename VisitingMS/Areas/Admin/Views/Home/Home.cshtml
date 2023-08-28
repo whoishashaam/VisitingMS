@@ -1,0 +1,27 @@
+﻿@model VisitingMS.Models.UserModel
+
+@if (User.IsInRole(SD.Role_Admin))
+{
+    <div class="alert alert-success">
+        <h2>Welcome, Admin!</h2>
+        <p>You have full access to manage the system.</p>
+        <p>Feel free to explore and make changes as needed.</p>
+    </div>
+}
+else if (User.IsInRole(SD.Role_User))
+{
+    <div class="alert alert-primary">
+        <h2>Welcome, User!</h2>
+        <p>Please proceed to the visitors area to manage visitors.</p>
+        <p>You can view, add, and update visitor information.</p>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h2>Registration Required</h2>
+        <p>Please register an account to proceed.</p>
+        <p>If you already have an account, please login.</p>
+        <p>Once logged in, you can access the system's features.</p>
+    </div>
+}

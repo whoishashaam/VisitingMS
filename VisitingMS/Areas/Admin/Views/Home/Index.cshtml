@@ -1,0 +1,28 @@
+﻿@model IEnumerable<VisitingMS.Models.UserModel>
+
+@{
+    ViewData["Title"] = "Visitor List";
+}
+
+<style>
+    .card-img-top {
+        height: 200px; /* Set a fixed height for the card image */
+        object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+    }
+</style>
+
+<div class="row">
+    @foreach (var visitor in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="@visitor.ImageUrl" class="card-img-top" alt="Visitor Image">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-uppercase opacity-75">@visitor.FullName</h5>
+                    <p class="card-text text-warning text-center ">@visitor.VisitingPurpose</p>
+                    <a href="@Url.Action("Details", "Home", new { id = visitor.Id })" class="btn btn-primary bg-gradient border-0 form-control">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

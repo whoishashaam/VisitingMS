@@ -1,0 +1,25 @@
+﻿@model VisitingMS.Models.DepartmentModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <h1 class="card-header text-center">Department Details</h1>
+        <div class="card-body">
+            <h4 class="card-title">Details</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Department Name</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DepartmentName)</dd>
+                <dt class="col-sm-3">Head of Department</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.HOD)</dd>
+            </dl>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

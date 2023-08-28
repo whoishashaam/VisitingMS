@@ -1,0 +1,37 @@
+﻿@model VisitingMS.Models.UserModel
+
+<partial name="_Notification" />
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h1>User Details</h1>
+
+<div>
+    <h4>User Information</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">CNIC</dt>
+        <dd class="col-sm-10">@Model.CNIC</dd>
+
+        <dt class="col-sm-2">Phone No</dt>
+        <dd class="col-sm-10">@Model.PhoneNo</dd>
+
+        <dt class="col-sm-2">Full Name</dt>
+        <dd class="col-sm-10">@Model.FullName</dd>
+
+        <dt class="col-sm-2">Entry Time</dt>
+        <dd class="col-sm-10">@Model.EntryTime</dd>
+
+        <dt class="col-sm-2">Visitor Belongings</dt>
+        <dd class="col-sm-10">@Model.VisitorBelongings</dd>
+
+        <dt class="col-sm-2">Visiting Purpose</dt>
+        <dd class="col-sm-10">@Model.VisitingPurpose</dd>
+    </dl>
+
+    <div class="form-group">
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

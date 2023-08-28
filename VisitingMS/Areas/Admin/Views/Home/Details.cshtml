@@ -1,0 +1,24 @@
+﻿@model VisitingMS.Models.UserModel
+
+@{
+    ViewData["Title"] = "Visitor Details";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div style="width: 500px; height: 600px; overflow: hidden;">
+            <img src="@Model.ImageUrl" alt="Visitor Image" style="width: 100%; height: 100%;">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>@Model.FullName</h2>
+        <p><strong>CNIC:</strong> @Model.CNIC</p>
+        <p><strong>Phone Number:</strong> @Model.PhoneNo</p>
+        <p><strong>Entry Time:</strong> @Model.EntryTime</p>
+        <p><strong>Visitor Belongings:</strong> @Model.VisitorBelongings</p>
+        <p><strong>Visiting Purpose:</strong> @Model.VisitingPurpose</p>
+        <p><strong>Visiting Department:</strong> @Model.Department.DepartmentName</p>
+
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Back</a>
+    </div>
+</div>

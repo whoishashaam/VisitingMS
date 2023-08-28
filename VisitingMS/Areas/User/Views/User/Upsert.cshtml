@@ -1,0 +1,88 @@
+﻿@model VisitingMS.Models.Models.ViewModels.UserVM
+
+<partial name="_Notification" />
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="col-12 text-center">
+            <h1 class="text-white py-2">@(Model.User.Id != 0 ? "Update" : "Create") Visitor</h1>
+        </div>
+        
+        
+        <form asp-action="Upsert" method="post" enctype="multipart/form-data">
+            <input asp-for="User.Id" hidden />
+            <div class="form-group">
+                <label asp-for="User.CNIC" class="control-label">CNIC</label>
+                <input asp-for="User.CNIC" class="form-control" type="number" />
+                <span asp-validation-for="User.CNIC" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.PhoneNo" class="control-label">Phone Number</label>
+                <input asp-for="User.PhoneNo" class="form-control" type="number" />
+                @* <span asp-validation-for="User.PhoneNo" class="text-danger"></span>*@
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.FullName" class="control-label">Full Name</label>
+                <input asp-for="User.FullName" class="form-control" />
+                <span asp-validation-for="User.FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.EntryTime" class="control-label">Entry Time</label>
+                <input asp-for="User.EntryTime" class="form-control" type="datetime-local" id="entryTime" />
+                <span asp-validation-for="User.EntryTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.VisitorBelongings" class="control-label">Visitor Belongings</label>
+                <input asp-for="User.VisitorBelongings" class="form-control" />
+                <span asp-validation-for="User.VisitorBelongings" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.VisitingPurpose" class="control-label">Visiting Purpose</label>
+                <input asp-for="User.VisitingPurpose" class="form-control" />
+                <span asp-validation-for="User.VisitingPurpose" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <select asp-for="User.DepartmentID" asp-items="@Model.DepartmentList" class="form-select border-0 shadow">
+                    <option disabled selected>--Select Department--</option>
+                </select>
+                <label asp-for="User.DepartmentID" class="ms-2"></label>
+                <span asp-validation-for="User.DepartmentID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.ImageUrl" class="control-label">Image</label>
+                <input type="file" name="file" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                @if (Model.User.Id != 0)
+                {
+                    <button type="submit" class="btn btn-primary">Update</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary">Create</button>
+                }
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 text-center">
+        <img src="@Model.User.ImageUrl" width="100%" style="border-radius: 5px; border: 1px solid #fff" />
+    </div>
+</div>
+
+<script>
+    // Set the current date and time in the EntryTime field when the page loads
+    document.getElementById('entryTime').value = new Date().toISOString().slice(0, 16);
+</script>
